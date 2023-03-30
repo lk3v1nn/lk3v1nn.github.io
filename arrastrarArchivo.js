@@ -34,6 +34,7 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
     leertxt();
     // Muestra el boton oculto de Procesar
     const boton = document.getElementById('procesar');
-    boton.removeAttribute('hidden');
+    // boton.removeAttribute('hidden');
+    setTimeout(ejtodo, 200);
 });
 
