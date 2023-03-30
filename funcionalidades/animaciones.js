@@ -1,14 +1,14 @@
 function animEntrada(){
 
     gsap.from('.areaParaArrastrar', {
-    duration: 2.5,
+    duration: 2,
     y: '-100%',
     ease: "bounce.out",
     rotate: -90,
 });
 
     gsap.from('#tabla1, #tabla2',{
-    duration: 3,
+    duration: 2.8,
     x:  '-20vw',
     delay: 0,
     ease: "power4.out",
@@ -17,7 +17,7 @@ function animEntrada(){
     console.log('Animacion');
 
     gsap.from('#tabla3',{
-    duration: 2.5,
+    duration: 2.8,
     x:  '20vw',
     delay: 0,
     ease: "power4.out",
