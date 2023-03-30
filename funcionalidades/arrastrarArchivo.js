@@ -17,7 +17,7 @@ const input = areaParaArrastrar.querySelector('input');
 areaParaArrastrar.addEventListener('dragleave', (e)=>{
     e.preventDefault();
     areaParaArrastrar.classList.remove('activo');
-    TextP.innerHTML = 'Arrastra aqui';
+    // TextP.innerHTML = 'Arrastra aqui';
 });
 //Evento que se activa cuando arrastre adentro de areaParaArrastrar
 areaParaArrastrar.addEventListener('dragover', (e)=>{

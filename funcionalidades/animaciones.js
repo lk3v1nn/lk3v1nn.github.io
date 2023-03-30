@@ -4,6 +4,7 @@ function animEntrada(){
     x:  -1000,
     delay: 0,
     ease: "bounce.out",
+    rotate: -45,
     });
     console.log('Animacion');
 
@@ -12,14 +13,15 @@ function animEntrada(){
     x:  1000,
     delay: 0,
     ease: "bounce.out",
+    rotate: 45,
     });
     console.log('Animacion');
 
     gsap.from('img',{
         duration: 1.6,
-        x:  1000,
-        borderRadius: '100%',
+        y:  -1000,
         ease: "bounce.out",
+        rotate: 90,
         });
         console.log('Animacion');
 
