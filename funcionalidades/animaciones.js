@@ -5,10 +5,11 @@ function animEntrada(){
     });
 
     tl.from('.areaParaArrastrar', {
-    duration: 2,
-    y: '-100%',
-    ease: "elastic",
-    rotate: -90,
+        opacity: 0,    
+        duration: 5,
+        y: '-100%',
+        ease: "elastic",
+        rotate: -90,
     });
 
     gsap.from('#tabla1, #tabla2',{
@@ -29,22 +30,22 @@ function animEntrada(){
     });
     console.log('Animacion');
 
-    gsap.to('#img1',{
-        duration: 2.5,
-        y:  '-50vw',
-        ease: "bounce.out",
-        rotate: 90,
-        });
+    // gsap.to('#img1',{
+    //     duration: 2.5,
+    //     y:  '-50vw',
+    //     ease: "bounce.out",
+    //     rotate: 90,
+    //     });
 
-    gsap.to('#img2',{
-        display: 'block',
-    });
+    // gsap.to('#img2',{
+    //     display: 'block',
+    // });
     
-    gsap.from('#img2',{
-        display: 'block',
-        duration: 2,
-        y:  '-50vw',
-        ease: "elastic",
-        rotate: 90,
-    });
+    // gsap.from('#img2',{
+    //     display: 'block',
+    //     duration: 2,
+    //     y:  '-50vw',
+    //     ease: "elastic",
+    //     rotate: 90,
+    // });
 }
