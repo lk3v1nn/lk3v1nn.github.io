@@ -22,4 +22,5 @@ function animEntrada(){
         ease: "bounce.out",
         });
         console.log('Animacion');
+
 }
