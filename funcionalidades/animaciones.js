@@ -17,12 +17,20 @@ function animEntrada(){
     });
     console.log('Animacion');
 
-    gsap.from('img',{
+    gsap.to('#img1',{
+        yoyo: true,
         duration: 2,
         y:  '-50vw',
         ease: "bounce.out",
         rotate: 90,
         });
         console.log('Animacion');
-
+    
+    gsap.from('#img2',{
+    duration: 2,
+    y:  '-50vw',
+    ease: "bounce.out",
+    rotate: 90,
+    });
+    console.log('Animacion');
 }

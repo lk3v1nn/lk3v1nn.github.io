@@ -34,13 +34,14 @@ header{
     /* background-color: rgb(255, 255, 153); */
 }
 .subdivision{
+    position: relative;
     height: 100%;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    /* flex-wrap: wrap; */
     border-left: 1px solid rgb(66, 148, 182);
 }
 .subdivision2{
@@ -103,6 +104,7 @@ button{
 }
 
 img{
+    position: absolute;
+    width: 75%;
     border: solid rgba(0, 0, 0, 0.6);
-    width: 90%;
 }
