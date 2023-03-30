@@ -1,25 +1,25 @@
 function animEntrada(){
     gsap.from('#tabla1, #tabla2',{
-    duration: 1.6,
-    x:  -1000,
+    duration: 2.5,
+    x:  '-20vw',
     delay: 0,
-    ease: "bounce.out",
+    ease: "power4.out",
     rotate: -45,
     });
     console.log('Animacion');
 
     gsap.from('#tabla3',{
-    duration: 1.6,
-    x:  1000,
+    duration: 2.5,
+    x:  '20vw',
     delay: 0,
-    ease: "bounce.out",
+    ease: "power4.out",
     rotate: 45,
     });
     console.log('Animacion');
 
     gsap.from('img',{
-        duration: 1.6,
-        y:  -1000,
+        duration: 2,
+        y:  '-50vw',
         ease: "bounce.out",
         rotate: 90,
         });

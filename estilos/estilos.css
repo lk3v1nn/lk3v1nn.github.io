@@ -14,7 +14,7 @@ header{
     justify-content: center;
     align-items: center;
     background-color: rgb(242, 242, 242);
-    color: rgba(0, 0, 0, 0.655);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.5rem;
     border-bottom: solid rgb(66, 148, 182);
 }
@@ -103,6 +103,6 @@ button{
 }
 
 img{
-    border: solid;
+    border: solid rgba(0, 0, 0, 0.6);
     width: 90%;
 }
