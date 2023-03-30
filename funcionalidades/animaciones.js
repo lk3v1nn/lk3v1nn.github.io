@@ -1,11 +1,15 @@
-function animEntrada(){
 
-    gsap.from('.areaParaArrastrar', {
+function animEntrada(){
+    let tl = gsap.timeline({
+        repeat: 0,
+    });
+
+    tl.from('.areaParaArrastrar', {
     duration: 2,
     y: '-100%',
-    ease: "bounce.out",
+    ease: "elastic",
     rotate: -90,
-});
+    });
 
     gsap.from('#tabla1, #tabla2',{
     duration: 2.8,
@@ -40,7 +44,7 @@ function animEntrada(){
         display: 'block',
         duration: 2,
         y:  '-50vw',
-        ease: "bounce.out",
+        ease: "elastic",
         rotate: 90,
     });
 }
