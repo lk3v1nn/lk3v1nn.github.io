@@ -13,20 +13,20 @@ function animEntrada(){
     });
 
     gsap.from('#tabla1, #tabla2',{
-    duration: 2.8,
+    duration: 3,
     x:  '-20vw',
     delay: 0,
     ease: "power4.out",
-    rotate: -45,
+    rotate: -25,
     });
     console.log('Animacion');
 
     gsap.from('#tabla3',{
-    duration: 2.8,
+    duration: 3,
     x:  '20vw',
     delay: 0,
     ease: "power4.out",
-    rotate: 45,
+    rotate: 25,
     });
     console.log('Animacion');
 
