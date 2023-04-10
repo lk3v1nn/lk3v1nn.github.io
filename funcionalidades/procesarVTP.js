@@ -64,8 +64,8 @@ function V_T(){
 
     // ELIMINA DUPLICADOS Y INSERTA LAS VARIABLES EN LA TABLA
     let VarSD = EliminarDuplicados(Variables);
-    for (i = 0; i < VarSD.length; i++){
-        insertaDatosTabla1_2('tabla1', VarSD[i]);
+    for (const temp of VarSD){
+        insertaDatosTabla1_2('tabla1', temp);
     }
 
     // GUARDA LOS CARACTERES QUE ESTEN DENTRO DE COMILLAS SIMPLES
@@ -84,8 +84,7 @@ function V_T(){
         insertaDatosTabla1_2('tabla2', datos);
     }
 
-
-    
+  
     // let TerminalesSep = [];
     // for (i = 0; i < Terminales.length; i++){ // Recorre las producciones
     //     let Terminal2 = Terminales[i].split('');
