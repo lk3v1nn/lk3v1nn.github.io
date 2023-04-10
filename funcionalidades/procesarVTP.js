@@ -53,7 +53,7 @@ function V_T(){
     
     let gramaticas = letras.split('\n'); //SEPARA LAS GRAMATICAS
 
-    //Separa las variables y las terminales mediante el signo =
+    //SEPARA LAS VARIABLES Y TERMINALES MEDIANTE EL SIGNO =
     let Variables = [];
     let Terminales = [];
     for (i = 0; i < gramaticas.length; i++){
@@ -62,30 +62,68 @@ function V_T(){
         Terminales[i] = Var_Ter[1];
     }
 
+    // ELIMINA DUPLICADOS Y INSERTA LAS VARIABLES EN LA TABLA
     let VarSD = EliminarDuplicados(Variables);
     for (i = 0; i < VarSD.length; i++){
         insertaDatosTabla1_2('tabla1', VarSD[i]);
     }
-    
-    let TerminalesSep = [];
-    for (i = 0; i < Terminales.length; i++){ // Recorre las producciones
-        let Terminal2 = Terminales[i].split('');
-        let contador = null;
-        for (j = 0; j < Terminal2.length; j++){ // Recorre los caracteres de las producciones
-            // VALIDA CUANDO EMPIEZA Y CUANDO TERMINA UNA COMILLA SIMPLE '
-            if (Terminal2[j]== "'"){ 
-                contador+=1;
-            }
-            if (contador == null){
-                console.log('nada');
-            }else if (contador%2 == 0){
-                console.log('par ' + contador);
-            }else{
-                console.log('impar ' + contador);
-            }
-        }
+
+    // GUARDA LOS CARACTERES QUE ESTEN DENTRO DE COMILLAS SIMPLES
+    const comillas = /'([^']*)'/g; 
+    const datosEnComillas = letras.matchAll(comillas);
+
+    // CONVIERTE EL IterableIterator EN UN ARRAY
+    let terminalesArray = [];
+    for (let temp of datosEnComillas){
+        terminalesArray.push(temp[1]);
     }
 
+    const NoDupliTerminales = EliminarDuplicados(terminalesArray);
+    //RECORRE TODO EL ARRAY Y INSERTA LOS DATOS EN LA TABLAS
+    for (const datos of NoDupliTerminales) {
+        insertaDatosTabla1_2('tabla2', datos);
+    }
+
+
+    
+    // let TerminalesSep = [];
+    // for (i = 0; i < Terminales.length; i++){ // Recorre las producciones
+    //     let Terminal2 = Terminales[i].split('');
+    //     let contador = null;
+    //     for (j = 0; j < Terminal2.length; j++){ // Recorre los caracteres de las producciones
+    //         // VALIDA CUANDO EMPIEZA Y CUANDO TERMINA UNA COMILLA SIMPLE '
+    //         if (Terminal2[j]== "'"){ 
+    //             contador+=1;
+    //         }
+    //         if (contador == null){
+    //             console.log('nada');
+    //         }else if (contador%2 == 0){
+    //             console.log('par ' + contador);
+    //         }else{
+    //             console.log('impar ' + contador);
+    //         }
+    //     }
+    // }
+
+}
+
+function V_P(){
+    const txt = document.querySelector('#text');
+    let letras = txt.innerHTML; // Datos del documento (Las gramaticas del .txt)
+    letras = letras.replace(/([ '])/g, '');
+    let gramaticas = letras.split('\n'); // Separo la cadena por saltos de linea
+    gramaticas = gramaticas.map(e => e.replace(/<br>/g, '')); //Map ejecuta la funcion para cada elemento del array
+    for (let i=0; i < gramaticas.length; i++){ // Recorre cada gramatica de la lista
+        let VP = gramaticas[i].split('='); // Separa la variable y produccion. Separa por el simbolo '='
+        if (VP[1].includes('|')){ // Verifica si la variable tiene varias producciones
+            let P = VP[1].split('|'); // Separa las producciones del variable
+            for(let i=0; i < P.length; i++){ // Recorre las producciones que separo en el paso anterior
+                insertaDatosTabla3('tabla3', VP[0], P[i]); // Inserta la variable y la produccion en la tabla
+            }
+        }else{
+            insertaDatosTabla3('tabla3', VP[0], VP[1]); // Inserta en la tabla la Variable y la Produccion
+        }
+    }
 }
 
 // function V_T(){
@@ -133,25 +171,6 @@ function V_T(){
 //     const boton = document.getElementById('procesar');
 //     boton.setAttribute('hidden', true);
 // }
-
-function V_P(){
-    const txt = document.querySelector('#text');
-    let letras = txt.innerHTML; // Datos del documento (Las gramaticas del .txt)
-    letras = letras.replace(/([ '])/g, '');
-    let gramaticas = letras.split('\n'); // Separo la cadena por saltos de linea
-    gramaticas = gramaticas.map(e => e.replace(/<br>/g, '')); //Map ejecuta la funcion para cada elemento del array
-    for (let i=0; i < gramaticas.length; i++){ // Recorre cada gramatica de la lista
-        let VP = gramaticas[i].split('='); // Separa la variable y produccion. Separa por el simbolo '='
-        if (VP[1].includes('|')){ // Verifica si la variable tiene varias producciones
-            let P = VP[1].split('|'); // Separa las producciones del variable
-            for(let i=0; i < P.length; i++){ // Recorre las producciones que separo en el paso anterior
-                insertaDatosTabla3('tabla3', VP[0], P[i]); // Inserta la variable y la produccion en la tabla
-            }
-        }else{
-            insertaDatosTabla3('tabla3', VP[0], VP[1]); // Inserta en la tabla la Variable y la Produccion
-        }
-    }
-}
 
 function ejtodo(){
     animEntrada();
