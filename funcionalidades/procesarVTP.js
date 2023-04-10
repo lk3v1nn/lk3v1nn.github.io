@@ -19,6 +19,7 @@ function insertaDatosTabla1_2(tabla, dato){
     let insertarColumna = insertarFila.insertCell();
     insertarColumna.innerHTML = dato;
 }
+
 function insertaDatosTabla3(tabla, dato1, dato2){
     // Ubicar tabla
     const tabla3 = document.getElementById(tabla);
@@ -34,60 +35,104 @@ function insertaDatosTabla3(tabla, dato1, dato2){
     colum2.innerHTML = dato2;
 }
 
-function Es_Mayuscula(letra)
-{
-    if (letra == letra.toUpperCase()){
-        return true;
-    }else{
-        return false;
-    }
+function EliminarDuplicados(datos){
+    const sinDuplicados = new Set(datos);
+    let resultado = [...sinDuplicados];
+    return resultado;
 }
 
 function V_T(){
     ReinsertaTabla()
     const txt = document.querySelector('#text');
     let letras = txt.innerHTML; // Datos del documento (Las gramaticas del .txt)
-    let k=0, l=0; // Contadores
-    let mayus=[], minus=[]; // Listas que guardaran las letras
 
     //REMPLAZA LOS CARACTERES QUE NO SE VAN A EVALUAR
-    letras = letras.replace('<br>', ''); // Saltos de linea
-    letras = letras.replace(/(\n)/g, ''); // Saltos de linea
-    letras = letras.replace(/([<> ='|])/g, ''); // Simbolos
+    letras = letras.replaceAll('<br>', ''); // Saltos de linea
+    letras = letras.replace(/( )/g, ''); // Espacios
+    // letras = letras.replace(/([<> ='|])/g, ''); // Simbolos
     
-    //SEPARA TODOS LOS CARACTERES DENTRO DE UN ARRAY
-    let listaSimple = letras.split('');
+    let gramaticas = letras.split('\n'); //SEPARA LAS GRAMATICAS
 
-    // Elimina los caracteres duplicados
-    const sinDuplicados = new Set(listaSimple);
-    let lista = [...sinDuplicados];
+    //Separa las variables y las terminales mediante el signo =
+    let Variables = [];
+    let Terminales = [];
+    for (i = 0; i < gramaticas.length; i++){
+        let Var_Ter = gramaticas[i].split('=');
+        Variables[i] = Var_Ter[0];
+        Terminales[i] = Var_Ter[1];
+    }
 
-    //RECORRE TODA LA LISTA PARA SEPARA MAYUSCULAS Y MINUSCULAS
-    for (let i = 0; i < lista.length; i++){
-        if (Es_Mayuscula(lista[i])){
-            mayus[k] = lista[i];
-            k++;
+    let VarSD = EliminarDuplicados(Variables);
+    for (i = 0; i < VarSD.length; i++){
+        insertaDatosTabla1_2('tabla1', VarSD[i]);
+    }
+    
+    let TerminalesSep = [];
+    for (i = 0; i < Terminales.length; i++){ // Recorre las producciones
+        let Terminal2 = Terminales[i].split('');
+        let contador = null;
+        for (j = 0; j < Terminal2.length; j++){ // Recorre los caracteres de las producciones
+            // VALIDA CUANDO EMPIEZA Y CUANDO TERMINA UNA COMILLA SIMPLE '
+            if (Terminal2[j]== "'"){ 
+                contador+=1;
+            }
+            if (contador == null){
+                console.log('nada');
+            }else if (contador%2 == 0){
+                console.log('par ' + contador);
+            }else{
+                console.log('impar ' + contador);
+            }
         }
-        else {
-            minus[l] = lista[i];
-            l++;
-        }
     }
 
-    // Muestra las mayusculas en la tabla
-    for (i=0; i < mayus.length; i++){
-        console.log(mayus[i]);
-        insertaDatosTabla1_2('tabla1', mayus[i]);
-    }
-    // Muestra las minusculas en la tabla
-    for (i=0; i < minus.length; i++){
-        console.log(minus[i]);
-        insertaDatosTabla1_2('tabla2', minus[i]);
-    }
-    // Oculta el boton procesar
-    const boton = document.getElementById('procesar');
-    boton.setAttribute('hidden', true);
 }
+
+// function V_T(){
+//     ReinsertaTabla()
+//     const txt = document.querySelector('#text');
+//     let letras = txt.innerHTML; // Datos del documento (Las gramaticas del .txt)
+//     let k=0, l=0; // Contadores
+//     let mayus=[], minus=[]; // Listas que guardaran las letras
+
+//     //REMPLAZA LOS CARACTERES QUE NO SE VAN A EVALUAR
+//     letras = letras.replace('<br>', ''); // Saltos de linea
+//     letras = letras.replace(/(\n)/g, ''); // Saltos de linea
+//     letras = letras.replace(/([<> ='|])/g, ''); // Simbolos
+    
+//     //SEPARA TODOS LOS CARACTERES DENTRO DE UN ARRAY
+//     let listaSimple = letras.split('');
+
+//     // Elimina los caracteres duplicados
+//     const sinDuplicados = new Set(listaSimple);
+//     let lista = [...sinDuplicados];
+
+//     //RECORRE TODA LA LISTA PARA SEPARA MAYUSCULAS Y MINUSCULAS
+//     for (let i = 0; i < lista.length; i++){
+//         if (Es_Mayuscula(lista[i])){
+//             mayus[k] = lista[i];
+//             k++;
+//         }
+//         else {
+//             minus[l] = lista[i];
+//             l++;
+//         }
+//     }
+
+//     // Muestra las mayusculas en la tabla
+//     for (i=0; i < mayus.length; i++){
+//         console.log(mayus[i]);
+//         insertaDatosTabla1_2('tabla1', mayus[i]);
+//     }
+//     // Muestra las minusculas en la tabla
+//     for (i=0; i < minus.length; i++){
+//         console.log(minus[i]);
+//         insertaDatosTabla1_2('tabla2', minus[i]);
+//     }
+//     // Oculta el boton procesar
+//     const boton = document.getElementById('procesar');
+//     boton.setAttribute('hidden', true);
+// }
 
 function V_P(){
     const txt = document.querySelector('#text');
