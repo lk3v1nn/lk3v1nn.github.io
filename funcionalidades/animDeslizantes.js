@@ -9,9 +9,12 @@ const tl = gsap.timeline();
     tl.from('.seccion3',{ x: '100%' });
     tl.from('.seccion4',{ y: '-100%' });
 
-ScrollTrigger.create({
-    Animation: tl,
-    trigger: 'secciones',
-    markers: true,
-});
+// ScrollTrigger.create({
+//     Animation: tl,
+//     trigger: '.secciones',
+//     markers: true,
+//     start: 'top top',
+//     end: '+=2000px',
+//     // pin: true,
+// });
 
