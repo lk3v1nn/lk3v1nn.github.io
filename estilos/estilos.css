@@ -8,7 +8,7 @@ html, body{
     padding: 0;
     box-sizing: border-box;
 }
-.contenedorGeneral{
+.contenedorGeneral{ 
     background-color: rgb(242, 242, 242);
     height: 100%;
     width: 100%;
@@ -47,6 +47,9 @@ header{
     align-items: center;
 }
 .seccionRecursividadIzquierda{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-area: cont3;
     border-right: 2px solid rgb(66, 148, 182);
 }
