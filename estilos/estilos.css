@@ -9,13 +9,14 @@ html, body{
     box-sizing: border-box;
 }
 .contenedorGeneral{
+    background-color: rgb(242, 242, 242);
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, auto); 
     grid-template-rows: auto 1fr;
-    grid-template-areas:'header header header header header header header header'  
-                        'cont1 cont2 cont2 cont2 cont2 cont2 cont2 cont2';
+    grid-template-areas:'header header header header'  
+                        'cont1 cont2 cont3 cont4';
 }
 
 header{
@@ -31,7 +32,6 @@ header{
 }
 .seccionTxt{
     height: 100%;
-    border: 2px solid black;
     grid-area: cont1;
     display: flex;
     justify-content: center;
@@ -39,11 +39,24 @@ header{
 }
 .seccionTablas{
     height: 100%;
-    border: 2px solid black;
+    border-left: 2px solid rgb(66, 148, 182);
+    /* border-right: 2px solid rgb(66, 148, 182); */
     grid-area: cont2;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.seccionRecursividadIzquierda{
+    grid-area: cont3;
+    border-right: 2px solid rgb(66, 148, 182);
+}
+.seccionBotones{
+    height: 100%;
+    width: 100%;
+    grid-area: cont4;
+    display: flex;
+    flex-direction: column;
+
 }
 .tablasGramatica{
     height: 100%;
