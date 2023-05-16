@@ -8,8 +8,18 @@ html, body{
     padding: 0;
     box-sizing: border-box;
 }
+.contenedorGeneral{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:'header header header header header header header header'  
+                        'cont1 cont2 cont2 cont2 cont2 cont2 cont2 cont2';
+}
+
 header{
-    height: 10%;
+    grid-area: header;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -19,34 +29,23 @@ header{
     font-size: 1.5rem;
     border-bottom: solid rgb(66, 148, 182);
 }
-.contenedor{
-    position: relative;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: left;
-    background-color: rgb(242, 242, 242);
-}
-.contenedor1{
-    width: 25%;
-}
-.contenedor2{
-    width: 75%;
-    /* background-color: rgb(255, 255, 153); */
-}
-.subdivision{
-    position: relative;
+.seccionTxt{
     height: 100%;
-    width: 50%;
+    border: 2px solid black;
+    grid-area: cont1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* flex-wrap: wrap; */
-    border-left: 1px solid rgb(66, 148, 182);
 }
-.subdivision2{
+.seccionTablas{
+    height: 100%;
+    border: 2px solid black;
+    grid-area: cont2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tablasGramatica{
     height: 100%;
     width: 100%;
     display: flex;

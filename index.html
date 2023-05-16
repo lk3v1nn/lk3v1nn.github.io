@@ -15,22 +15,22 @@
     
 </head>
 <body>
-    <header>
-        <div>
-            <h1>Proyecto Compiladores</h1>
-        </div>
-    </header>
+        <div class="contenedorGeneral">
+            <header>
+                <div>
+                    <h1>Proyecto Compiladores</h1>
+                </div>
+            </header>
+            
+            <section class="seccionTxt">
+                <div class="areaParaArrastrar">
+                    <h3 id="text">Arrastre un archivo de texto</h3>
+                    <input type="file" id="txt" onchange="" hidden >
+                </div>
+            </section>
 
-        <div class="contenedor contenedor1">
-            <div class="areaParaArrastrar">
-                <h3 id="text">Arrastre un archivo de texto</h3>
-                <input type="file" id="txt" onchange="" hidden >
-            </div>
-        </div>
-
-        <div class="contenedor contenedor2">
-            <div class="subdivision">
-                <div class="subdivision2">
+            <section class="seccionTablas">
+                <div class="tablasGramatica">
                     <div class="scroll">
                         <button id="procesar" onclick="setTimeout(todo, 2000)" hidden>Procesar archivo</button>
                         <div class="tablas">
@@ -42,33 +42,31 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="subdivision2">
-                    <h1>Proximas funciones aquí</h1>
-                </div> -->
-            </div>
-            <div class="subdivision scrollSecciones" hidden>
-                <div class="inicio"><h3>inicio</h3></div>
-                <div class="secciones">
-                    <section class="seccion seccion1">
-                        <!-- <img id="img1" src="img/imagen.png"> -->
-                        <h2>SECCION 1</h2>
-                    </section>
-                    <section class="seccion seccion2">
-                        <!-- <img id="img2" src="img/o.png"> -->
-                        <h2>SECCION 2</h2>
-                    </section>
-                    <section class="seccion seccion3">
-                        <h2>SECCION 3</h2>
-                    </section>
-                    <section class="seccion seccion4">
-                        <!-- <img id="img2" src="img/o.png"> -->
-                        <h2>SECCION 4</h2>
-                    </section>
+                <div class="scrollSecciones" hidden>
+                    <div class="inicio"><h3>inicio</h3></div>
+                    <div class="secciones">
+                        <section class="seccion seccion1">
+                            <!-- <img id="img1" src="img/imagen.png"> -->
+                            <h2>SECCION 1</h2>
+                        </section>
+                        <section class="seccion seccion2">
+                            <!-- <img id="img2" src="img/o.png"> -->
+                            <h2>SECCION 2</h2>
+                        </section>
+                        <section class="seccion seccion3">
+                            <h2>SECCION 3</h2>
+                        </section>
+                        <section class="seccion seccion4">
+                            <!-- <img id="img2" src="img/o.png"> -->
+                            <h2>SECCION 4</h2>
+                        </section>
+                    </div>
+                    <div class="final"> <h3>final</h3> <p>xd</p>
+                    </div>
                 </div>
-                <div class="final"> <h3>final</h3> <p>xd</p>
-                </div>
-            </div>
+            </section>            
         </div>
+
     <script src="/funcionalidades/arrastrarArchivo.js"></script>
     <script src="funcionalidades/leertxt.js"></script>
     <script src="/funcionalidades/procesarVTP.js"></script>    
