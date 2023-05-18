@@ -1,3 +1,7 @@
+let beta;
+let alfa;
+let varPrima;
+
 function quitarRecursividad(){
     const text = document.getElementById('text');
     let gramatica = text.innerHTML; // Datos del documento (Las gramaticas del .text)
@@ -16,17 +20,23 @@ function remplazarCaracteres(cadena){
 }
 
 function separarGramatica(gramaticas){
+    //SEPARA LAS GRATICAS
+    let gramaticaIndividual = gramaticas.split('\n') 
+    for (let objGramaticaIndividual of gramaticaIndividual){
+        //SEPARA LA VARIABLE Y LA PRODUCCION
+        let variableProduccion = objGramaticaIndividual.split('='); 
+        //SEPARA LAS PRODUCCIONES
+        let producciones = variableProduccion[1].split('|');
 
-    let gramaticaIndividual = gramaticas.split('\n') //SEPARA LAS GRATICAS
-    for (let obj of gramaticaIndividual){
-        let variableProduccion = obj.split('='); //SEPARA LA VARIABLE Y LA PRODUCCION
-        insertaEnDOM('H3', variableProduccion[0], 'gramaticaSinRecursividadIzquierda');
+        insertaEnDOM('h4','G: '+validarGramaticaRecursiva(variableProduccion[0],producciones), 'gramaticaSinRecursividadIzquierda');
+        insertaEnDOM('H1', variableProduccion[0], 'gramaticaSinRecursividadIzquierda');
 
-        let producciones = variableProduccion[1].split('|');//SEPARA LAS PRODUCCIONES
-        for(let obj2 of producciones){
-            insertaEnDOM('H5', obj2, 'gramaticaSinRecursividadIzquierda');
-            //AQUI DEBO SEPARAR LOS CARACTERES DE LAS PRODUCCIONES
+        for(let objProducciones of producciones){
+            insertaEnDOM('H3', objProducciones, 'gramaticaSinRecursividadIzquierda');
+            //SEPARA CARACTERES DE LAS PRODUCCION
+            insertaEnDOM('h6','P: '+validaProduccionRecursiva(variableProduccion[0],objProducciones ),'gramaticaSinRecursividadIzquierda');
         }
+        
     }
 
 }
@@ -37,4 +47,34 @@ function insertaEnDOM(etiqueta, datos, idEtiqueta){
 
     let areaDelDOM = document.getElementById(idEtiqueta); //DONDE SE INSERTARA LA ETIQUETA
     areaDelDOM.appendChild(objeto); //INSERTA EL OBJETO
+}
+
+function validarGramaticaRecursiva(variable, producciones){
+
+    //LIMPIA LAS VARIABLES GLOBALES PARA USAR SIGUIENTE PRODUCCION
+    beta = null;
+    alfa = null;
+    varPrima = null;
+
+    for(let objProducciones of producciones){ //RECORRE TODAS LAS PRODUCCIONES
+    let produccionesSeparadas = objProducciones.split(''); //SEPARA LOS CARACTERES DE LAS PRODUCCIONES
+        if(variable == produccionesSeparadas[0]){
+
+            return true;
+            break;
+        }else{
+            return false;
+        }
+    }
+}
+
+function validaProduccionRecursiva(variable, producciones){
+        let produccion = producciones.split('');
+        varPrima = variable + '`';
+        if(variable == produccion[0]){
+            return true;
+        }else{
+            beta = producciones;
+            return false;
+        }
 }
