@@ -28,6 +28,7 @@ function separarGramatica(gramaticas){
         //SEPARA LAS PRODUCCIONES
         let producciones = variableProduccion[1].split('|');
 
+        //IMPRIME VARIBLE Y VALIDADOR
         insertaEnDOM('h4','G: '+validarGramaticaRecursiva(variableProduccion[0],producciones), 'gramaticaSinRecursividadIzquierda');
         insertaEnDOM('H1', variableProduccion[0], 'gramaticaSinRecursividadIzquierda');
 
