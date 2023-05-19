@@ -8,6 +8,9 @@ let varSinRecursividad;
 function quitarRecursividad(){
     const text = document.getElementById('text');
     let gramatica = text.innerHTML; // Datos del documento (Las gramaticas del .text)
+    
+    
+    modificarFormatoText(gramatica);
 
     gramatica = remplazarCaracteres(gramatica);
 
@@ -135,4 +138,34 @@ function imprimeGramaticaFinal(variable,beta, alfa, varPrima, gramaticaRecursiva
 function eliminarDelDOM(etiquetaVaciar){
     let etiqueta = document.getElementById(etiquetaVaciar);
     etiqueta.innerHTML='';
+}
+
+function modificarFormatoText(gramaticas){
+    let textFormateado = Array();
+    let gramaticaIndividual = gramaticas.split('\n'); //separa gramaticas
+    //RECORRE TODAS LAS GRAMATICAS
+    for(let i =0; i< gramaticaIndividual.length; i++){
+        let gramaticaFormateada;
+        let unionProducciones = '';
+        //SEPARA VARIABLE DE PRODUCCION
+        let variable_Produccion = gramaticaIndividual[i].split('='); 
+        let variable1 = variable_Produccion[0];
+        let produccion1 = variable_Produccion[1];
+        unionProducciones = produccion1;
+        for(let j=i; j< gramaticaIndividual.length; j++){
+            //SEPARA VARIABLE DE PRODUCCION
+            let variable_Produccion = gramaticaIndividual[j].split('='); 
+            let variable2 = variable_Produccion[0];
+            let produccion2 = variable_Produccion[1];
+            if(variable1 == variable2){
+                
+                unionProducciones +=  ' | ' + produccion2 ;
+            }
+            
+        }
+        gramaticaFormateada = variable1 + '=' +unionProducciones;
+        textFormateado.push(gramaticaFormateada);
+    }
+    console.log(textFormateado);
+    
 }
