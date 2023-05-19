@@ -1,6 +1,7 @@
 let beta;
 let alfa;
 let varPrima;
+let variable;
 
 function quitarRecursividad(){
     const text = document.getElementById('text');
@@ -22,22 +23,31 @@ function remplazarCaracteres(cadena){
 function separarGramatica(gramaticas){
     //SEPARA LAS GRATICAS
     let gramaticaIndividual = gramaticas.split('\n') 
-    for (let objGramaticaIndividual of gramaticaIndividual){
+    for (let objGramaticaIndividual of gramaticaIndividual){ //recorre toda las gramaticas
+        
         //SEPARA LA VARIABLE Y LA PRODUCCION
         let variableProduccion = objGramaticaIndividual.split('='); 
+        variable = variableProduccion[0];
         //SEPARA LAS PRODUCCIONES
         let producciones = variableProduccion[1].split('|');
-
         //IMPRIME VARIBLE Y VALIDADOR
-        insertaEnDOM('h2','G: '+validarGramaticaRecursiva(variableProduccion[0],producciones), 'gramaticaSinRecursividadIzquierda');
-        insertaEnDOM('H1', variableProduccion[0], 'gramaticaSinRecursividadIzquierda');
+        // insertaEnDOM('h2','G: '+validarGramaticaRecursiva(variableProduccion[0],producciones), 'gramaticaSinRecursividadIzquierda');
+        // insertaEnDOM('H1', variableProduccion[0], 'gramaticaSinRecursividadIzquierda');
 
+        validarGramaticaRecursiva(variable,producciones);
         for(let objProducciones of producciones){
-            insertaEnDOM('H3', objProducciones, 'gramaticaSinRecursividadIzquierda');
+            // insertaEnDOM('H3', objProducciones, 'gramaticaSinRecursividadIzquierda');
             //SEPARA CARACTERES DE LAS PRODUCCION
-            insertaEnDOM('h4','P: '+validaProduccionRecursiva(variableProduccion[0],objProducciones ),'gramaticaSinRecursividadIzquierda');
+            // insertaEnDOM('h4','P: '+validaProduccionRecursiva(variableProduccion[0],objProducciones ),'gramaticaSinRecursividadIzquierda');
+            
+            validaProduccionRecursiva(variable,objProducciones );
         }
-        
+        insertaEnDOM('H3', 'Prim '+varPrima, 'gramaticaSinRecursividadIzquierda');
+        // alfa.push('E'); 
+        insertaEnDOM('H3', 'alfa '+ alfa, 'gramaticaSinRecursividadIzquierda');
+        insertaEnDOM('H3', 'beta '+beta, 'gramaticaSinRecursividadIzquierda');
+        // insertaEnDOM('H2', imprimeGramaticaFinal(variable,beta,alfa,varPrima), 'gramaticaSinRecursividadIzquierda');
+        imprimeGramaticaFinal(variable,beta,alfa,varPrima);
     }
 
 }
@@ -53,29 +63,53 @@ function insertaEnDOM(etiqueta, datos, idEtiqueta){
 function validarGramaticaRecursiva(variable, producciones){
 
     //LIMPIA LAS VARIABLES GLOBALES PARA USAR SIGUIENTE PRODUCCION
-    beta = null;
-    alfa = null;
-    varPrima = null;
+    beta = '';
+    varPrima = '';
+    alfa='';
 
     for(let objProducciones of producciones){ //RECORRE TODAS LAS PRODUCCIONES
     let produccionesSeparadas = objProducciones.split(''); //SEPARA LOS CARACTERES DE LAS PRODUCCIONES
         if(variable == produccionesSeparadas[0]){
-
+            varPrima = variable + '`'; //CREA LA VARIABLE PRIMA
             return true;
             break;
         }else{
             return false;
         }
     }
+    
 }
 
 function validaProduccionRecursiva(variable, producciones){
-        let produccion = producciones.split('');
-        varPrima = variable + '`';
+        let produccion = Array();
+        produccion = producciones.split('');//SEPARA POR CARACTERES LA PRODUCCION
+        
+        //VALIDA SI LA PRODUCCION ES RECURSIVA
         if(variable == produccion[0]){
-            return true;
+
+            if(alfa != ''){
+                alfa+= ' | ' ; //AGREGAR EL SEPARADOR DE CADA PRODUCCION
+            }
+            //RECORRE LOS CARACTERES DE LA PRODUCCION PARA GUARDARLOS EN UN ARRAY
+            for(let i=1; i < produccion.length; i++){
+                alfa += produccion[i] + ' ';
+            }
         }else{
-            beta = producciones;
-            return false;
+            beta = producciones; //GUARDA LA PRODUCCION NO RECURSIVA
         }
+}
+
+function imprimeGramaticaFinal(variable,beta, alfa, varPrima){
+    let gramatica1 = variable + ' = ' + beta + varPrima;
+    
+
+    let alfaSepardo = alfa.split('|');
+    let alfaFormateado='';
+    for(let objalfa of alfaSepardo){
+        alfaFormateado += objalfa + varPrima + ' | ';
+    }
+
+    let gramatica2 = varPrima + ' = ' + alfaFormateado + ' E';
+
+    insertaEnDOM('h2', gramatica1 + '<br>' + gramatica2, 'gramaticaSinRecursividadIzquierda');
 }
