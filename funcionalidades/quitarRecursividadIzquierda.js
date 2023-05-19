@@ -29,13 +29,13 @@ function separarGramatica(gramaticas){
         let producciones = variableProduccion[1].split('|');
 
         //IMPRIME VARIBLE Y VALIDADOR
-        insertaEnDOM('h4','G: '+validarGramaticaRecursiva(variableProduccion[0],producciones), 'gramaticaSinRecursividadIzquierda');
+        insertaEnDOM('h2','G: '+validarGramaticaRecursiva(variableProduccion[0],producciones), 'gramaticaSinRecursividadIzquierda');
         insertaEnDOM('H1', variableProduccion[0], 'gramaticaSinRecursividadIzquierda');
 
         for(let objProducciones of producciones){
             insertaEnDOM('H3', objProducciones, 'gramaticaSinRecursividadIzquierda');
             //SEPARA CARACTERES DE LAS PRODUCCION
-            insertaEnDOM('h6','P: '+validaProduccionRecursiva(variableProduccion[0],objProducciones ),'gramaticaSinRecursividadIzquierda');
+            insertaEnDOM('h4','P: '+validaProduccionRecursiva(variableProduccion[0],objProducciones ),'gramaticaSinRecursividadIzquierda');
         }
         
     }

@@ -13,7 +13,7 @@ html, body{
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, auto); 
+    grid-template-columns: repeat(3, auto) 125px; 
     grid-template-rows: auto 1fr;
     grid-template-areas:'header header header header'  
                         'cont1 cont2 cont3 cont4';
@@ -27,7 +27,7 @@ header{
     align-items: center;
     background-color: rgb(242, 242, 242);
     color: rgba(0, 0, 0, 0.6);
-    font-size: 1.5rem;
+    font-size: 10px;
     border-bottom: solid rgb(66, 148, 182);
 }
 .seccionTxt{
@@ -52,6 +52,22 @@ header{
     justify-content: center;
     grid-area: cont3;
     border-right: 2px solid rgb(66, 148, 182);
+}
+.seccionRecursividadIzquierda  h1{
+    
+    font-size: 20px;
+}
+.seccionRecursividadIzquierda  h2{
+    color: royalblue;
+    font-size: 15px;
+}
+.seccionRecursividadIzquierda  h3{
+    color: green;
+    font-size: 12px;
+}
+.seccionRecursividadIzquierda  h4{
+    color: red;
+    font-size: 10px;
 }
 .seccionBotones{
     height: 100%;
@@ -112,7 +128,7 @@ td{
 button{
     margin: 10px;
     padding: 5px 15px;
-    font-size: 2rem;
+    font-size: 10px;
     border: 0;
     background-color: rgb(44, 182, 99);
     color: rgb(242, 242, 242);
