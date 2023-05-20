@@ -13,7 +13,7 @@ html, body{
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, auto) 125px; 
+    grid-template-columns: repeat(4, auto); 
     grid-template-rows: auto 1fr;
     grid-template-areas:'header header header header'  
                         'cont1 cont2 cont3 cont4';

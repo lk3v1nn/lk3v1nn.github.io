@@ -51,7 +51,11 @@ function animEntrada(){
 }
 
 function MostrarSecciones(){
-    document.querySelector('.seccionTablas').style.display = "block";
-    // document.getElementById("element").style.display = "block";
+    document.querySelector('.seccionTablas').style.display = "flex";
     document.querySelector('.seccionRecursividadIzquierda').style.display = 'flex';
+}
+
+function OcultarSecciones(){
+    document.querySelector('.seccionTablas').style.display = "none";
+    document.querySelector('.seccionRecursividadIzquierda').style.display = 'none';
 }
