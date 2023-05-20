@@ -54,22 +54,23 @@ header{
     border-right: 2px solid rgb(66, 148, 182);
     flex-direction: column;
 }
-.seccionRecursividadIzquierda  h1{
-    
-    font-size: 20px;
+.seccionRecursividadIzquierda div{
+    border: 2px solid rgb(66, 148, 182);
+    padding: 3px;
 }
 .seccionRecursividadIzquierda  h2{
-    color: royalblue;
-    font-size: 15px;
+    color: black;
+    padding: 2px;
+    font-size: 0.8rem;
 }
 .seccionRecursividadIzquierda  h3{
-    color: green;
-    font-size: 12px;
+    background-color: rgb(66, 148, 182);
+    padding: 2px;
+    color: rgb(242, 242, 242);
+    font-size: 15px;
+    text-decoration: underline rgb(66, 148, 182);
 }
-.seccionRecursividadIzquierda  h4{
-    color: red;
-    font-size: 10px;
-}
+
 .seccionBotones{
     height: 100%;
     width: 100%;

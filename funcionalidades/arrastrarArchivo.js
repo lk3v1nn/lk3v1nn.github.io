@@ -36,8 +36,7 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
     const boton = document.getElementById('procesar');
     // boton.removeAttribute('hidden');
 
-    eliminarDelDOM('gramaticaSinRecursividadIzquierda');
+    eliminarDelDOM('gramaticaSinRecursividadIzquierda'); //LIMPIA EL DOM
     setTimeout(ejtodo, 200);
-    setTimeout(quitarRecursividad, 250);
 });
 

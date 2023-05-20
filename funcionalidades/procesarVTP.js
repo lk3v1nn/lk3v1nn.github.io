@@ -175,6 +175,8 @@ function ejtodo(){
     animEntrada();
     V_T();
     V_P();
+    quitarRecursividad();
+    // setTimeout(quitarRecursividad, 250);
 }
 
 
