@@ -39,12 +39,12 @@ header{
     align-items: center;
 }
 .seccionTablas{
-    height: 100%;
-    /* border-right: 2px solid rgb(66, 148, 182); */
     grid-area: cont2;
+    /* border-right: 2px solid rgb(66, 148, 182);
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 .seccionRecursividadIzquierda{
     display: flex;
