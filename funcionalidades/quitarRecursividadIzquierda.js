@@ -12,7 +12,7 @@ function quitarRecursividad(){
     gramatica = quitarCatecteres(gramatica);    
     let gramaticaFormateada = modificarFormatoText(gramatica);
     gramaticaFormateada = quitarCatecteres(gramaticaFormateada);  
-    // insertaEnDOM('h4',gramaticaFormateada,'gramaticaSinRecursividadIzquierda');
+    insertaEnDOM('h3','Recursividad por la izquierda','gramaticaSinRecursividadIzquierda');
     separarGramatica(gramaticaFormateada);
     
 }

@@ -52,6 +52,7 @@ header{
     justify-content: center;
     grid-area: cont3;
     border-right: 2px solid rgb(66, 148, 182);
+    flex-direction: column;
 }
 .seccionRecursividadIzquierda  h1{
     

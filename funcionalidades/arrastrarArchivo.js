@@ -35,6 +35,9 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
     // Muestra el boton oculto de Procesar
     const boton = document.getElementById('procesar');
     // boton.removeAttribute('hidden');
+
+    eliminarDelDOM('gramaticaSinRecursividadIzquierda');
     setTimeout(ejtodo, 200);
+    setTimeout(quitarRecursividad, 250);
 });
 
