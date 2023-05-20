@@ -172,6 +172,7 @@ function V_P(){
 // }
 
 function ejtodo(){
+    MostrarSecciones();
     animEntrada();
     V_T();
     V_P();
