@@ -24,29 +24,30 @@
             
             <section class="seccionTxt">
                 <div class="areaParaArrastrar">
+                    <h2>Gramatica</h2>
                     <h3 id="text">Arrastre un archivo de texto</h3>
                     <input type="file" id="txt" onchange="" hidden >
                 </div>
             </section>
-
-            <section class="seccionTablas" style='display:none;'>
-                    <div class="scroll">
-                        <div class="tablas">
-                            <table id="tabla1"></table>
-                            <table id="tabla2"></table>
-                        </div>
-                        <div class="tablas">
-                            <table id="tabla3"></table>
-                        </div>
-                    </div>
-            </section>  
 
             <section class="seccionRecursividadIzquierda" style='display:none;'>
                 <div class="scroll">
                     <div id="gramaticaSinRecursividadIzquierda"></div>
                 </div>
             </section>
-            
+
+            <section class="seccionTablas" style='display:none;'>
+                <div class="scroll">
+                    <div class="tablas">
+                        <table id="tabla1"></table>
+                        <table id="tabla2"></table>
+                    </div>
+                    <div class="tablas">
+                        <table id="tabla3"></table>
+                    </div>
+                </div>
+            </section>              
+           
             <section class="seccionBotones">
                 <h4>Funciones</h4>
                 <button onclick="MostrarSecciones(), quitarRecursividad()">Recursividad por la izquierda</button>

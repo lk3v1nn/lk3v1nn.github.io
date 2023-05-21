@@ -1,18 +1,20 @@
 .areaParaArrastrar{
-    height: 90%;
-    width: 90%;
+    
     border: 4px dashed rgb(66, 148, 182);
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     
 }
 .areaParaArrastrar.activo{
     /* background-color: rgb(66, 148, 182);	 */
-    color: rgb(66, 148, 182);
+    color: black;
     border: hidden;
+}
+.areaParaArrastrar h2{
+    color: rgb(66, 148, 182);
 }
 .areaParaArrastrar h3{
     display: flex;
