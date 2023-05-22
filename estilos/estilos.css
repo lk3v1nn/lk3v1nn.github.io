@@ -14,6 +14,7 @@ h4{
     font-size: 18px;
 }
 .contenedorGeneral{
+    overflow: hidden;
     padding: 8px;
     background-color: white;
     height: 100%;
