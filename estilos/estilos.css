@@ -18,8 +18,8 @@ html, body{
     grid-template-areas:
         'header header header header'
         'sBotones sArrastras sGramaticas sGramaticas'
-        'sTablas sTablas cont5 cont5';
-    align-items: start;
+        'sTablas sTablas sTablas sTablas';
+        align-items: start;
 }
 
 header{
@@ -136,7 +136,7 @@ td{
     padding: 0 1rem; 
 }
 button{
-    margin: 2px 0px;
+    margin: 2px 4px;
     padding: 4px 8px;
     font-size: 12px;
     border: 2px solid rgb(66, 148, 182);
