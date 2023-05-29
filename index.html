@@ -37,7 +37,9 @@
             </section>
 
             <section class="seccionTablas" style='display:none;'>
+
                 <div class="scroll">
+
                     <div class="tablas">
                         <table id="tabla1"></table>
                         <table id="tabla2"></table>
@@ -45,14 +47,19 @@
                     <div class="tablas">
                         <table id="tabla3"></table>
                     </div>
+
+                    <div class="tablas" id="tablasXIzquierda">
+                    </div>
+
                 </div>
+
             </section>              
            
             <section class="seccionBotones">
                 <h4>Funciones</h4>
                 <button onclick="MostrarSecciones(), quitarRecursividad()">Recursividad por la izquierda</button>
                 <button onclick="MostrarSecciones(), animEntrada()" >Funcion Primero</button>
-                <button >Funcion Siguiente</button>
+                <button onclick="V_T_porIzquierda()">Funcion Siguiente</button>
                 <button onclick="eliminarDelDOM('gramaticaSinRecursividadIzquierda'), OcultarSecciones()">Limpiar</button>
             </section>
 

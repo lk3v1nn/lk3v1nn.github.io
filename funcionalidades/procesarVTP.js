@@ -85,25 +85,6 @@ function V_T(){
     }
 
   
-    // let TerminalesSep = [];
-    // for (i = 0; i < Terminales.length; i++){ // Recorre las producciones
-    //     let Terminal2 = Terminales[i].split('');
-    //     let contador = null;
-    //     for (j = 0; j < Terminal2.length; j++){ // Recorre los caracteres de las producciones
-    //         // VALIDA CUANDO EMPIEZA Y CUANDO TERMINA UNA COMILLA SIMPLE '
-    //         if (Terminal2[j]== "'"){ 
-    //             contador+=1;
-    //         }
-    //         if (contador == null){
-    //             console.log('nada');
-    //         }else if (contador%2 == 0){
-    //             console.log('par ' + contador);
-    //         }else{
-    //             console.log('impar ' + contador);
-    //         }
-    //     }
-    // }
-
 }
 
 function V_P(){
@@ -125,51 +106,28 @@ function V_P(){
     }
 }
 
-// function V_T(){
-//     ReinsertaTabla()
-//     const txt = document.querySelector('#text');
-//     let letras = txt.innerHTML; // Datos del documento (Las gramaticas del .txt)
-//     let k=0, l=0; // Contadores
-//     let mayus=[], minus=[]; // Listas que guardaran las letras
 
-//     //REMPLAZA LOS CARACTERES QUE NO SE VAN A EVALUAR
-//     letras = letras.replace('<br>', ''); // Saltos de linea
-//     letras = letras.replace(/(\n)/g, ''); // Saltos de linea
-//     letras = letras.replace(/([<> ='|])/g, ''); // Simbolos
+/* TABLAS DE RECURSIVIDAD X IZQUIERDA */
+
+function V_T_porIzquierda(){
+    let eTablasXIzquierda = document.getElementById('tablasXIzquierda');
     
-//     //SEPARA TODOS LOS CARACTERES DENTRO DE UN ARRAY
-//     let listaSimple = letras.split('');
+    let eTable = document.createElement('table');
+    let eThead = document.createElement('thead');
+    let eTr = document.createElement('tr');
+    let eTd = document.createElement('td');
+    let eTbody = document.createElement('tbody');
 
-//     // Elimina los caracteres duplicados
-//     const sinDuplicados = new Set(listaSimple);
-//     let lista = [...sinDuplicados];
+    eTablasXIzquierda.appendChild(eTable);
+    eTable.appendChild(eThead);
+    eThead.appendChild(eTr);
+    eTd.innerHTML='hola';
+    eTr.append(eTd);
+    eTd.innerHTML='fff';
+    eTr.append(eTd);
+    
+}
 
-//     //RECORRE TODA LA LISTA PARA SEPARA MAYUSCULAS Y MINUSCULAS
-//     for (let i = 0; i < lista.length; i++){
-//         if (Es_Mayuscula(lista[i])){
-//             mayus[k] = lista[i];
-//             k++;
-//         }
-//         else {
-//             minus[l] = lista[i];
-//             l++;
-//         }
-//     }
-
-//     // Muestra las mayusculas en la tabla
-//     for (i=0; i < mayus.length; i++){
-//         console.log(mayus[i]);
-//         insertaDatosTabla1_2('tabla1', mayus[i]);
-//     }
-//     // Muestra las minusculas en la tabla
-//     for (i=0; i < minus.length; i++){
-//         console.log(minus[i]);
-//         insertaDatosTabla1_2('tabla2', minus[i]);
-//     }
-//     // Oculta el boton procesar
-//     const boton = document.getElementById('procesar');
-//     boton.setAttribute('hidden', true);
-// }
 
 function ejtodo(){
     MostrarSecciones();
