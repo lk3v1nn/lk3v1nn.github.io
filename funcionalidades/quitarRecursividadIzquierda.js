@@ -124,9 +124,11 @@ function imprimeGramaticaFinal(variable,beta, alfa, varPrima, gramaticaRecursiva
     }
 }
 
-function eliminarDelDOM(etiquetaVaciar){
-    let etiqueta = document.getElementById(etiquetaVaciar);
+function eliminarDelDOM(etiquetaVaciar, etiquetaVaciar2){
+    let etiqueta = document.querySelector(etiquetaVaciar);
     etiqueta.innerHTML='';
+    let etiqueta2 = document.querySelector(etiquetaVaciar2);
+    etiqueta2.innerHTML='';
 }
 
 

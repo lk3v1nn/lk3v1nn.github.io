@@ -25,7 +25,7 @@ h4{
     grid-template-areas:
         'header header header header'
         'sBotones sArrastras sGramaticas sGramaticas'
-        'sTablas sTablas sTablas sTablas';
+        'sTablas sTablas sTablasIzq sTablasIzq';
     align-content: center;
     justify-content: center;
     gap: 10PX;
@@ -55,6 +55,17 @@ header{
     background-color: rgb(242, 242, 242);
     border: 2px solid rgb(66, 148, 182);
     grid-area: sTablas;
+    /* border-right: 2px solid rgb(66, 148, 182);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.seccionTablasIzq{
+    padding: 5px;
+    background-color: rgb(242, 242, 242);
+    border: 2px solid rgb(66, 148, 182);
+    grid-area: sTablasIzq;
     /* border-right: 2px solid rgb(66, 148, 182);
     height: 100%;
     display: flex;

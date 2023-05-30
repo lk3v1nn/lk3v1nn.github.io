@@ -21,7 +21,7 @@ function animEntrada(){
         rotate: 25,
     });
 
-    gsap.from('.seccionTablas',{
+    gsap.from('.seccionTablas, .seccionTablasIzq',{
     duration: 3,
     x:  '-20vw',
     delay: 0,
@@ -33,10 +33,12 @@ function animEntrada(){
 
 function MostrarSecciones(){
     document.querySelector('.seccionTablas').style.display = "inline-block";
+    document.querySelector('.seccionTablasIzq').style.display = "inline-block";
     document.querySelector('.seccionRecursividadIzquierda').style.display = 'inline-block';
 }
 
 function OcultarSecciones(){
     document.querySelector('.seccionTablas').style.display = "none";
+    document.querySelector('.seccionTablasIzq').style.display = "none";
     document.querySelector('.seccionRecursividadIzquierda').style.display = 'none';
 }

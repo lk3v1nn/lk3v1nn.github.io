@@ -40,7 +40,7 @@ function EliminarDuplicados(datos){
     let resultado = [...sinDuplicados];
     return resultado;
 }
-
+let NoDupliTerminales; //Variable global que contiene los terminales no repetidos
 function V_T(){
     ReinsertaTabla()
     const txt = document.querySelector('#text');
@@ -78,7 +78,7 @@ function V_T(){
         terminalesArray.push(temp[1]);
     }
 
-    const NoDupliTerminales = EliminarDuplicados(terminalesArray);
+    NoDupliTerminales = EliminarDuplicados(terminalesArray);
     //RECORRE TODO EL ARRAY Y INSERTA LOS DATOS EN LA TABLAS
     for (const datos of NoDupliTerminales) {
         insertaDatosTabla1_2('tabla2', datos);
@@ -110,21 +110,40 @@ function V_P(){
 /* TABLAS DE RECURSIVIDAD X IZQUIERDA */
 
 function V_T_porIzquierda(){
+    let temp = [1, 2];
+    CrearTablaRIzquierda(NoDupliTerminales);
+    
+}
+
+function CrearTablaRIzquierda(columna1){
     let eTablasXIzquierda = document.getElementById('tablasXIzquierda');
     
+    //Crea las etiquetas objeto
     let eTable = document.createElement('table');
     let eThead = document.createElement('thead');
-    let eTr = document.createElement('tr');
-    let eTd = document.createElement('td');
     let eTbody = document.createElement('tbody');
 
+    //Inserta la tabla
     eTablasXIzquierda.appendChild(eTable);
+    
+    //Inserta encabezado
     eTable.appendChild(eThead);
-    eThead.appendChild(eTr);
-    eTd.innerHTML='hola';
-    eTr.append(eTd);
-    eTd.innerHTML='fff';
-    eTr.append(eTd);
+    let filaThead = eThead.insertRow();
+    let columnaThead = filaThead.insertCell();
+    columnaThead.textContent = 'Titulo 1';
+    let columnaThead2 = filaThead.insertCell();
+    columnaThead2.textContent = 'Titulo 2';
+
+
+    //INSERTA CUERPO
+    eTable.appendChild(eTbody);
+    for (let terminales of columna1){
+        let filaTbody = eTbody.insertRow();
+        let ColumnaTbody = filaTbody.insertCell();
+        ColumnaTbody.textContent = terminales;
+        let ColumnaTbody2 = filaTbody.insertCell();
+        ColumnaTbody2.textContent = 'soy el 2';
+    }
     
 }
 
