@@ -107,42 +107,37 @@ function V_P(){
 }
 
 
-/* TABLAS DE RECURSIVIDAD X IZQUIERDA */
+/* TABLAS DE RECURSIVIDAD X IZQUIERDA *********************************************************************************************************/
 
-function V_T_porIzquierda(){
+function InsertarTablasRIzq(){
     let temp = [1, 2];
-    CrearTablaRIzquierda(NoDupliTerminales);
-    
+    CrearTablaRIzquierda('Variables' ,temp);
+    CrearTablaRIzquierda('Terminales' ,NoDupliTerminales);
 }
 
-function CrearTablaRIzquierda(columna1){
+function CrearTablaRIzquierda(titulo, datos){
     let eTablasXIzquierda = document.getElementById('tablasXIzquierda');
     
-    //Crea las etiquetas objeto
+    //CREA LAS ETIQUETAS
     let eTable = document.createElement('table');
     let eThead = document.createElement('thead');
     let eTbody = document.createElement('tbody');
 
-    //Inserta la tabla
+    //INSERTA TABLA
     eTablasXIzquierda.appendChild(eTable);
     
-    //Inserta encabezado
+    //INSERTA ENCABEZADO
     eTable.appendChild(eThead);
     let filaThead = eThead.insertRow();
     let columnaThead = filaThead.insertCell();
-    columnaThead.textContent = 'Titulo 1';
-    let columnaThead2 = filaThead.insertCell();
-    columnaThead2.textContent = 'Titulo 2';
-
+    columnaThead.textContent = titulo;
 
     //INSERTA CUERPO
     eTable.appendChild(eTbody);
-    for (let terminales of columna1){
+    for (let objcolumna of datos){
         let filaTbody = eTbody.insertRow();
         let ColumnaTbody = filaTbody.insertCell();
-        ColumnaTbody.textContent = terminales;
-        let ColumnaTbody2 = filaTbody.insertCell();
-        ColumnaTbody2.textContent = 'soy el 2';
+        ColumnaTbody.textContent = objcolumna;
     }
     
 }
