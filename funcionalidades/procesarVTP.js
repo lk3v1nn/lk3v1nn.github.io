@@ -110,12 +110,51 @@ function V_P(){
 /* TABLAS DE RECURSIVIDAD X IZQUIERDA *********************************************************************************************************/
 
 function InsertarTablasRIzq(){
-    let temp = [1, 2];
-    CrearTablaRIzquierda('Variables' ,temp);
-    CrearTablaRIzquierda('Terminales' ,NoDupliTerminales);
+    let gramatica = extraerGramaticaRIzquierda();
+    let VP = V_P_RecuIzq(gramatica);
+    console.log(VP);
+    
+    CrearTablaRIzquierdaIndividual('Variables' ,VP[0]);
+    CrearTablaRIzquierdaIndividual('Terminales' ,NoDupliTerminales);
+
+    let temp = ['S = A', 'S=E', 'S´=T']
+    CrearTablaRIzquierdaDoble('variables', 'terminal', temp);
+
 }
 
-function CrearTablaRIzquierda(titulo, datos){
+function extraerGramaticaRIzquierda(){
+    let gramatica = document.getElementById('gramaticaSinRecursividadIzquierda');
+    let cadena = gramatica.innerHTML;
+    
+    //LIMPIA CARACTERES QUE NO VANA SERVIR y transforma a una cadena comprensible
+    cadena = cadena.replaceAll('</h2><h2>', '\n');
+    cadena = cadena.replaceAll('<br>', '\n');
+    cadena = cadena.replaceAll('<h3>Recursividad por la izquierda</h3>', '');
+    cadena = cadena.replaceAll('<h2>', '');
+    cadena = cadena.replaceAll('</h2>', '');
+    cadena = cadena.replace(/( )/g, ''); // Espacios
+    // letras = letras.replace(/([<> ='|])/g, ''); // Simbolos
+
+    return cadena;
+}
+
+
+function V_P_RecuIzq(cadena){
+    let variables = [];
+    let producciones = [];
+    let iterador = 0;
+    let gramaticas = cadena.split('\n');
+    for (let objGramatica of gramaticas){
+        let variable_produccion = objGramatica.split('=');
+        variables[iterador] = variable_produccion[0];
+        producciones[iterador] = variable_produccion[1];
+        iterador++;
+    }
+    let VP = [variables, producciones];
+    return VP;
+}
+
+function CrearTablaRIzquierdaIndividual(titulo, datos){
     let eTablasXIzquierda = document.getElementById('tablasXIzquierda');
     
     //CREA LAS ETIQUETAS
@@ -142,6 +181,37 @@ function CrearTablaRIzquierda(titulo, datos){
     
 }
 
+function CrearTablaRIzquierdaDoble(titulo1, titulo2, datos){
+    let eTablasXIzquierda = document.getElementById('tablasXIzquierda');
+
+    //CREAR LAS ETIQUETAS
+    let eTable = document.createElement('table');
+    let eThead = document.createElement('thead');
+    let eTbody = document.createElement('tbody');
+
+    //INSERTA TABLA EN EL DOM
+    eTablasXIzquierda?.appendChild(eTable);
+
+    //INSERTA ENCABEZADOS
+    eTable.appendChild(eThead);
+    let filaThead = eThead.insertRow();
+    let columna1Thead = filaThead.insertCell();
+    columna1Thead.textContent=titulo1;
+    let columna2Thead = filaThead.insertCell();
+    columna2Thead.textContent=titulo2;
+
+    //INSERTAR CUERPO
+    eTable.appendChild(eTbody);
+    for (let objcolumnas of datos){
+        let filaTbody = eTbody.insertRow();
+        //aqui tengo el S=A debe separarlo y meterlo en las celdas
+        let VT = objcolumnas.split('=');
+        let columna1Tbody = filaTbody.insertCell();
+        columna1Tbody.textContent = VT[0];
+        let columna2Tbody = filaTbody.insertCell();
+        columna2Tbody.textContent = VT[1];
+    }
+}
 
 function ejtodo(){
     MostrarSecciones();
