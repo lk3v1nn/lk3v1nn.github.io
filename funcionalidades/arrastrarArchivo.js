@@ -38,5 +38,6 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
 
     eliminarDelDOM('#tablasXIzquierda', '#gramaticaSinRecursividadIzquierda'); //LIMPIA EL DOM
     setTimeout(ejtodo, 200);
+    setTimeout(insertarTablasRIzq, 200);
 });
 
