@@ -225,16 +225,3 @@ function V_P(){
         }
         return VT;
     }
-
-
-
-function ejtodo(){
-    MostrarSecciones();
-    animEntrada();
-    V_T();
-    V_P();
-    quitarRecursividad();
-
-}
-
-

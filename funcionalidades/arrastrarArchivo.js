@@ -25,7 +25,8 @@ areaParaArrastrar.addEventListener('dragover', (e)=>{
     areaParaArrastrar.classList.add('activo');
     TextP.innerHTML = 'Suelta para carga el archivo';
 });
-//Evento se activa cunado suelto un elemento dentro de areaParaArrastrar
+
+//Evento QUE se activa cunado suelto un elemento dentro de areaParaArrastrar
 areaParaArrastrar.addEventListener('drop', (e) =>{
     e.preventDefault();
     input.files = e.dataTransfer.files;
@@ -36,8 +37,17 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
     const boton = document.getElementById('procesar');
     // boton.removeAttribute('hidden');
 
+    //FUNCIONES QUE EJECUTARA
     eliminarDelDOM('#tablasXIzquierda', '#gramaticaSinRecursividadIzquierda'); //LIMPIA EL DOM
-    setTimeout(ejtodo, 200);
+    setTimeout(function() {
+        MostrarSecciones();
+        animEntrada();
+        V_T();
+        V_P();
+        quitarRecursividad();
+      }, 200);
+    
     setTimeout(insertarTablasRIzq, 200);
+
 });
 
