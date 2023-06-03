@@ -225,3 +225,8 @@ function V_P(){
         }
         return VT;
     }
+
+
+    function jalo(){
+        console.log('holafffs');
+    } 

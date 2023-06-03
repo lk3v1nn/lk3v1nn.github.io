@@ -52,3 +52,6 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
     funcionPrimeraXd2();
 });
 
+
+
+

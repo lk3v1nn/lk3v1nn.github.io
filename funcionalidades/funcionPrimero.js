@@ -16,6 +16,10 @@
     creaObjgramatica(cadena);
   }
 
+  function puputa(){
+console.log('holaaaafff');
+}
+
   // function extraerVP(){
   //   let cadena = extraerGramaticaRIzquierda();
 
