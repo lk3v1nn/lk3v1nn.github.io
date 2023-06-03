@@ -44,7 +44,7 @@ header{
 }
 .seccionTxt{
     background-color: rgb(242, 242, 242);
-    /* border: 2px solid rgb(66, 148, 182); */
+    border: 2px solid rgb(66, 148, 182);
     grid-area: sArrastras;
     display: flex;
     align-items: baseline;
