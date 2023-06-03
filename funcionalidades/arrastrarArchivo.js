@@ -38,7 +38,7 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
     // boton.removeAttribute('hidden');
 
     //FUNCIONES QUE EJECUTARA
-    eliminarDelDOM('#tablasXIzquierda', '#gramaticaSinRecursividadIzquierda'); //LIMPIA EL DOM
+    eliminarDelDOM('#tablasXIzquierda', '#gramaticaSinRecursividadIzquierda', '#gramaticaFuncionPrimero'); //LIMPIA EL DOM
     setTimeout(function() {
         MostrarSecciones();
         animEntrada();
@@ -48,8 +48,8 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
       }, 200);
     
     setTimeout(insertarTablasRIzq, 200);
-    // setTimeout(funcionPrimeraXd2, 200);
-    funcionPrimeraXd2();
+    setTimeout(funcionPrimero, 200);
+    // funcionPrimero();
 });
 
 

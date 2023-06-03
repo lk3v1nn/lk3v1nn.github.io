@@ -5,11 +5,14 @@ let variable;
 let gramaticaRecursiva;
 let varSinRecursividad;
 
-function eliminarDelDOM(etiquetaVaciar, etiquetaVaciar2){
+function eliminarDelDOM(etiquetaVaciar, etiquetaVaciar2, etiquetaVaciar3){
     let etiqueta = document.querySelector(etiquetaVaciar);
     etiqueta.innerHTML='';
     let etiqueta2 = document.querySelector(etiquetaVaciar2);
     etiqueta2.innerHTML='';
+    let etiqueta3 = document.querySelector(etiquetaVaciar3);
+    etiqueta3.innerHTML='';
+    
 }
 
     function quitarRecursividad(){

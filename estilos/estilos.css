@@ -82,7 +82,13 @@ header{
     grid-area: sGramaticas;
     flex-direction: row;
 }
-.seccionRecursividadIzquierda #gramaticaSinRecursividadIzquierda{
+.seccionRecursividadIzquierda #gramaticaSinRecursividadIzquierda {
+    border: 1.8px dashed rgb(66, 148, 182);
+    padding: 2px;
+    margin: 5px;
+    background-color: white ;
+}
+.seccionRecursividadIzquierda #gramaticaFuncionPrimero {
     border: 1.8px dashed rgb(66, 148, 182);
     padding: 2px;
     margin: 5px;

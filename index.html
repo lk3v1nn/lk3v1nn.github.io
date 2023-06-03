@@ -33,6 +33,7 @@
             <section class="seccionRecursividadIzquierda" style='display:none;'>
                 <div class="scroll">
                     <div id="gramaticaSinRecursividadIzquierda"></div>
+                    <div id="gramaticaFuncionPrimero"></div>
                 </div>
             </section>
 
@@ -66,9 +67,9 @@
             <section class="seccionBotones">
                 <h4>Funciones</h4>
                 <button onclick="MostrarSecciones(), quitarRecursividad()">Recursividad por la izquierda</button>
-                <button onclick="MostrarSecciones(), animEntrada()" >Funcion Primero</button>
-                <button onclick="hola() ">Funcion Siguiente</button>
-                <button onclick="eliminarDelDOM('#tablasXIzquierda', '#gramaticaSinRecursividadIzquierda'), OcultarSecciones()">Limpiar</button>
+                <button onclick="MostrarSecciones(), funcionPrimero()" >Funcion Primero</button>
+                <button onclick="funcionPrimero(), animEntrada() ">Anamacion</button>
+                <button onclick="eliminarDelDOM('#tablasXIzquierda', '#gramaticaSinRecursividadIzquierda', '#gramaticaFuncionPrimero'), OcultarSecciones()">Limpiar</button>
             </section>
 
         </div>
