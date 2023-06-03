@@ -116,8 +116,8 @@ function V_P(){
         CrearTablaRIzquierdaIndividual('Variables' ,VP[0]);
         CrearTablaRIzquierdaIndividual('Terminales' ,NoDupliTerminales);
 
-        let VT = V_T_RecuIzq(gramatica);
-        CrearTablaRIzquierdaDoble('variables', 'terminal', VT);
+        let VP2 = V_T_RecuIzq(gramatica);
+        CrearTablaRIzquierdaDoble('Variables', 'Producciones', VP2);
     }
 
     function extraerGramaticaRIzquierda(){

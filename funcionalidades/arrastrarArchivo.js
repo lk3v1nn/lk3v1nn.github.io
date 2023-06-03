@@ -48,6 +48,7 @@ areaParaArrastrar.addEventListener('drop', (e) =>{
       }, 200);
     
     setTimeout(insertarTablasRIzq, 200);
-
+    // setTimeout(funcionPrimeraXd2, 200);
+    funcionPrimeraXd2();
 });
 
