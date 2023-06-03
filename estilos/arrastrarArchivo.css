@@ -10,7 +10,7 @@
 .areaParaArrastrar.activo{
     /* background-color: rgb(66, 148, 182);	 */
     color: black;
-    /* border: 2px solid rgb(66, 148, 182); */
+    border: hidden;
 }
 .areaParaArrastrar h2{
     font-weight: 500;
